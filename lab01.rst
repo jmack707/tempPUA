@@ -935,6 +935,14 @@ Task 17 - PUA testing
 .. |image111| image:: media/lab01/image111.png
 .. |image112| image:: media/lab01/image112.png
 .. |image113| image:: media/lab01/image113.png
+.. |image114| image:: media/lab01/image114.png
+.. |image115| image:: media/lab01/image115.png
+.. |image116| image:: media/lab01/image116.png
+.. |image117| image:: media/lab01/image117.png
+.. |image118| image:: media/lab01/image118.png
+.. |image119| image:: media/lab01/image119.png
+.. |image120| image:: media/lab01/image120.png
+.. |image121| image:: media/lab01/image121.png
 .. |image200| image:: media/lab01/200.png
 .. |image201| image:: media/lab01/201.png
 .. |image202| image:: media/lab01/202.png
