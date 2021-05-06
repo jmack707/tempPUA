@@ -58,7 +58,7 @@ Ephemeral authentication Configuration defines the authentication method (LDAP o
 
 #. Configure the General Properties:
 
-   #. Name: **pua.auth.conf**
+   #. Name: **ldap.auth.conf**
    #. Authentication Method: **ldap**
    #. Click **Save**
 
@@ -80,11 +80,11 @@ The SSH Security Configuration defines the ciphers, exchange methods, HMACs, and
 
 #. Configure the General Properties
 
-   #. Name: **pua.ssh.conf**
-   #. Ciphers: aes256-ctr, aes192-ctr
-   #. Key Exchange Methods: diffie-hellman-group1-sha14, diffie-hellman-group-exchange-sha1
-   #. HMACs: hmac-sha1
-   #. Compression Algorithms: none
+   #. Name: **ldap.ssh.conf**
+   #. Ciphers: **aes256-ctr**, **aes192-ctr**
+   #. Key Exchange Methods: **diffie-hellman-group1-sha14**, **diffie-hellman-group-exchange-sha1**
+   #. HMACs: **hmac-sha1**
+   #. Compression Algorithms: **none**
    #. Click **Save**
 
    |image4|
