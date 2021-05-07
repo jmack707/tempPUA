@@ -78,7 +78,7 @@ The SSH Security Configuration defines the ciphers, exchange methods, HMACs, and
 
    |image3|
 
-#. Configure the General Properties
+#. Configure the SSH Properties
 
    #. Name: **ldap.ssh.conf**
    #. Ciphers: **aes256-ctr**, **aes192-ctr**
@@ -101,9 +101,9 @@ Ephemeral Authentication Configuration specifies the password setting for privil
 
 #. Configure the General Properties
 
-   #. Name: **pua.access.conf**
-   #. Authentication Configuration: **pua.auth.conf**
-   #. SSH Security Configuration: **pua.ssh.conf**
+   #. Name: **ldap.access.conf**
+   #. Authentication Configuration: **ldap.auth.conf**
+   #. SSH Security Configuration: **ldap.ssh.conf**
    #. Click **Save**
 
    |image6|
@@ -117,11 +117,12 @@ Task 5 - Create WebSSH Resource
 
 #. Configure the General Properties
 
-   #. Name: **Radius01**
+   #. Name: **Client01**
    #. Destination: 
       #. select: **IP Address** radio button
       #. Enter IP: **10.1.20.9**
-   #. Authentication configuration: **pua.auth.conf**
+      #. Port: 2022
+   #. Authentication configuration: **ldap.auth.conf**
 
 #. Configure the Customization Setting for English
 
@@ -141,13 +142,13 @@ The LDAP Authentication configuration defines the external LDAP server used to i
    
 #. Configure General Properties
 
-   #. Name: pua.ldap.conf
-   #. Proxy User DN: **CN=admin,CN=Users,DC=f5lab,DC=local**
+   #. Name: **ldap.conf**
+   #. Proxy User DN: **cn=Admin,cn=Users,dc=f5lab,dc=local**
    #. Proxy User Password: **admin**
 
 #. User settings 
 
-   #. Bypass User List: **CN=admin,CN=Users,DC=f5lab,DC=local**, and Click Add
+   #. Bypass User List: **cn=Admin,cn=Users,dc=f5lab,dc=local**, and Click **Add**
    #. Click **Finished**
 
    |image10|
@@ -165,7 +166,7 @@ The Webtop houses links to resources we would like to access.
 
 #. General Properties
 
-   #. Name: **pua.Webtop**
+   #. Name: **pua.webtop**
    #. Type: **Full**
    #. Click **Finish**
 
@@ -241,7 +242,7 @@ Task 9 - Create an Admin Access Macro
    |image26|
 
 #. Click **WebSSH**
-#. Click **/Common/BIGIP5**
+#. Click **/Common/Client01**
 
    |image27|
 
@@ -289,6 +290,7 @@ Task 10 - Create an GET UPN from CAC Macro
    .. code-block:: console
 
       Custom Variable = session.custom.ephemeral.upn
+
       Custom Expression = 
       set x509e_fields [split [mcget {session.ssl.cert.x509extension}] "\n"]; 
       # For each element in the list: 
@@ -355,7 +357,7 @@ Task 10 - Create an GET UPN from CAC Macro
 
    |image45|
 
-#. Name: **NO_UPN**
+#. Name: **NO UPN**
 #. Tile: **NO UPN**
 #. Click **Save**
 
@@ -389,12 +391,12 @@ Task 11 - Create the LDAP Macro
 
    |image51|
 
-#. Name: LDAP_Query
+#. Name: LDAP Query
 #. Click **Save**
 
    |image52|
 
-#. Expand the LDAP_Query Macro
+#. Expand the LDAP Query Macro
 #. Click **+ (plus symbol)** 
 
    |image53|
@@ -531,7 +533,7 @@ Task 12 - Create the CAC AUTH Macro
 
    |image78|
 
-#. Click **+* (plus symbol)* on the Found Branch between GET UPN from CAC and Out
+#. Click **+* (plus symbol)** on the Found Branch between GET UPN from CAC and Out
 
    |image79|
 
@@ -597,6 +599,7 @@ Task 13 - Update the Initial Access Policy
 #. Click **Add Item**
 
    |image92|
+
 
 #. Click **+ (plus symbol)** between CAC Auth and Deny Terminals on the successful branch
 
@@ -873,6 +876,7 @@ Task 17 - PUA testing
 .. |image71| image:: media/lab01/image071.png
 .. |image72| image:: media/lab01/image072.png
 .. |image73| image:: media/lab01/image073.png
+.. |image74| image:: media/lab01/image074.png
 .. |image75| image:: media/lab01/image075.png
 .. |image75| image:: media/lab01/image075.png
 .. |image76| image:: media/lab01/image076.png
